@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group By 演示</title>
+    <style>
+        .mt {
+            margin-top: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        .border-bottom {
+            border-bottom: solid 3px skyblue;
+            padding-bottom: 5px;
+        }
+
+        .alert {
+            background: #0dbd01;
+            padding: 3px;
+            color: white;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="mt">
+    {% if get_flashed_messages() %}
+        <div class="alert">
+            <p>{{ get_flashed_messages()[0] }}</p>
+        </div>
+    {% endif %}
+    <h4 class="border-bottom">MySQL GROUP BY 演示</h4>
+    <a href="{{ url_for('.index') }}">返回</a>
+    <p><b>User {{ user_id }}的相关私信</b></p>
+    <table>
+        <thead>
+        <tr>
+            <td>Sender ID</td>
+            <td>Content</td>
+            <td>Send Time</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for pm in pms %}
+            <tr>
+            <td>{{ pm[0] }}</td>
+            <td>{{ pm[1] }}</td>
+            <td>{{ pm[2] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

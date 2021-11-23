@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group By 演示</title>
+    <style>
+        .mt {
+            margin-top: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        .border-bottom {
+            border-bottom: solid 3px skyblue;
+            padding-bottom: 5px;
+        }
+
+        .alert {
+            background: #0dbd01;
+            padding: 3px;
+            color: white;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="mt">
+    {% if get_flashed_messages() %}
+        <div class="alert">
+            <p>{{ get_flashed_messages()[0] }}</p>
+        </div>
+    {% endif %}
+    <h4 class="border-bottom">MySQL GROUP BY 演示</h4>
+    <a href="{{ url_for('.insert') }}">插入数据</a>
+    <a href="{{ url_for('.query', user_id=user_id) }}">查询私信</a>
+</div>
+</body>
+</html>
