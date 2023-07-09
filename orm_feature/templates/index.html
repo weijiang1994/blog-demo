@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>继承公共属性以及公共方法</title>
+    <style>
+        .container {
+            margin: 20px 30%;
+        }
+
+        .container .title {
+            font-size: 24px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .ml-auto{
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="title">
+        SQAlchemy的一些特性示例
+    </div>
+    <a href="/save">增加</a>
+    <p>音乐</p>
+    <ul>
+        {% for music in musics %}
+            <li style="display: flex">{{ music.name }}-{{ music.author }}<a class="ml-auto" href="/delete/{{ music.id }}?type=music">删除</a></li>
+        {% endfor %}
+    </ul>
+    <p>电影</p>
+    <ul>
+        {% for video in videos %}
+            <li style="display: flex">{{ video.name }}-{{ video.director }}<a class="ml-auto" href="/delete/{{ video.id }}?type=video">删除</a></li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
