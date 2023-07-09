@@ -82,7 +82,7 @@ def save():
     director = fake.name()
     obj = random.choice([1, 2])
     if obj == 1:
-        video = Video(name=name, director=director)
+        video = Video.update_or_insert(Video.name == name, name=name, director=director)
         video.save()
     else:
         music = Music(name=name, author=director)
